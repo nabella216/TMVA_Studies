@@ -9,6 +9,10 @@
 	- [How to change the range of input variables](#how-to-change-the-range-of-input-variables)
 
 <!-- /TOC -->
+# Some important information
+
+* This is tested in **CMSSW_9_0_1** having root version **6.08/05**
+
 # Steps To Do
 
 ## Cut Scan
