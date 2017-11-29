@@ -203,6 +203,9 @@ int TMVAClassification( TString myMethodList = "" )
     TFile * inputBkg_Top5  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTWJetsToQQ.root");
     TFile * inputBkg_Top6  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTZToLLNuNu_M-10.root");
     TFile * inputBkg_Top7  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTZToQQ.root");
+    TFile * inputBkg_Top8  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_s_channel.root");
+    TFile * inputBkg_Top9  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_t_channel_antitop.root");
+    TFile * inputBkg_Top10  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_t_channel_top_4f.root");
     
     TFile * inputBkg_Diboson1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_QCD_LO_SM.root");
     TFile * inputBkg_Diboson2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_QCD_LO_SM.root");
@@ -267,6 +270,9 @@ int TMVAClassification( TString myMethodList = "" )
     TTree *background_Top5     = (TTree*)inputBkg_Top5->Get("otree");
     TTree *background_Top6     = (TTree*)inputBkg_Top6->Get("otree");
     TTree *background_Top7     = (TTree*)inputBkg_Top7->Get("otree");
+    TTree *background_Top8     = (TTree*)inputBkg_Top8->Get("otree");
+    TTree *background_Top9     = (TTree*)inputBkg_Top9->Get("otree");
+    TTree *background_Top10     = (TTree*)inputBkg_Top10->Get("otree");
     
     TTree *background_Diboson1 =(TTree*)inputBkg_Diboson1->Get("otree");
     TTree *background_Diboson2 =(TTree*)inputBkg_Diboson2->Get("otree");
@@ -372,8 +378,8 @@ int TMVAClassification( TString myMethodList = "" )
    // but will appear in the final "TestTree" produced by TMVA. This TestTree will contain the
    // input variables, the response values of all trained MVAs, and the spectator variables
 
-   dataloader->AddSpectator( "spec1 := l_pt1*2",  "Spectator 1", "units", 'F' );
-   dataloader->AddSpectator( "spec2 := pfMET_Corr*3",  "Spectator 2", "units", 'F' );
+   dataloader->AddSpectator( "spec1 := l_pt1",  "Spectator 1", "units", 'F' );
+   dataloader->AddSpectator( "spec2 := pfMET_Corr",  "Spectator 2", "units", 'F' );
 
 
    // global event weights per tree (see below for setting event-wise weights)
@@ -410,6 +416,9 @@ int TMVAClassification( TString myMethodList = "" )
     dataloader->AddBackgroundTree( background_Top5, backgroundWeight*0.4062/(833257.0-2*201483.0) );
     dataloader->AddBackgroundTree( background_Top6, backgroundWeight*0.2529/(7969186.0-2*2126557.0) );
     dataloader->AddBackgroundTree( background_Top7, backgroundWeight*0.5297/(749367.0-2*199113.0) );
+    dataloader->AddBackgroundTree( background_Top8, backgroundWeight*11.36/(999976-2*188501) );
+    dataloader->AddBackgroundTree( background_Top9, backgroundWeight*80.95/(3927980) );
+    dataloader->AddBackgroundTree( background_Top10, backgroundWeight*136.02/(5993570) );
 
     dataloader->AddBackgroundTree( background_Diboson1, backgroundWeight*5.633/(3949170.0-0.0) );
     dataloader->AddBackgroundTree( background_Diboson2, backgroundWeight*5.633/(3994663.0-0.0) );
@@ -485,7 +494,7 @@ int TMVAClassification( TString myMethodList = "" )
    // Set individual event weights (the variables must exist in the original TTree)
    // -  for signal    : `dataloader->SetSignalWeightExpression    ("weight1*weight2");`
    // -  for background: `dataloader->SetBackgroundWeightExpression("weight1*weight2");`
-   dataloader->SetSignalWeightExpression    ("genWeight*LHEWeight[992]/LHEWeight[0]");
+   dataloader->SetSignalWeightExpression    ("genWeight*LHEWeight[993]/LHEWeight[0]");
    dataloader->SetBackgroundWeightExpression( "genWeight" );
 
    // Apply additional cuts on the signal and background samples (can be different)

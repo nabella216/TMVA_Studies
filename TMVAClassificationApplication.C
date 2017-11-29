@@ -131,8 +131,8 @@ void TMVAClassificationApplication( TString fname = "/eos/uscms/store/user/rasha
 
    // Spectator variables declared in the training have to be added to the reader, too
    Float_t spec1,spec2;
-   reader->AddSpectator( "spec1 := l_pt1*2",   &spec1 );
-   reader->AddSpectator( "spec2 := pfMET_Corr*3",   &spec2 );
+   reader->AddSpectator( "spec1 := l_pt1",   &spec1 );
+   reader->AddSpectator( "spec2 := pfMET_Corr",   &spec2 );
 
    // Book the MVA methods
 
@@ -171,9 +171,10 @@ void TMVAClassificationApplication( TString fname = "/eos/uscms/store/user/rasha
    //TString fname = "./tmva_class_example.root";
    if (!gSystem->AccessPathName( fname )) {
       input = TFile::Open( fname ); // check if file in local directory exists
+      //input = TFile::Open( "root://cmsxrootd.fnal.gov/"+ fname ); // check if file in local directory exists
    }
    if (!input) {
-      std::cout << "ERROR: could not open data file" << std::endl;
+      std::cout << "ERROR: could not open data file : "<< fname << std::endl;
       exit(1);
    }
    std::cout << "--- TMVAClassificationApp    : Using input file: " << input->GetName() << std::endl;
@@ -209,6 +210,50 @@ void TMVAClassificationApplication( TString fname = "/eos/uscms/store/user/rasha
    // Clone the input tree in "Outtree"; to clone input tree in output root file
    TTree *Outtree = theTree->CloneTree(0);;
 
+   // Define all input variables to access from input tree
+   Float_t userVar1[37];
+   Int_t userVarI[3];
+   theTree->SetBranchAddress( "l_pt1",	&userVar1[0] );
+   theTree->SetBranchAddress( "l_eta1",	&userVar1[1] );
+   theTree->SetBranchAddress( "pfMET_Corr",	&userVar1[2] );
+   theTree->SetBranchAddress( "vbf_maxpt_jj_m", 	&userVar1[3] );
+   theTree->SetBranchAddress( "v_pt_type0", 	&userVar1[4] );
+   theTree->SetBranchAddress( "v_eta_type0", 	&userVar1[5] );
+   theTree->SetBranchAddress( "ungroomed_PuppiAK8_jet_pt", 	&userVar1[6] );
+   theTree->SetBranchAddress( "ungroomed_PuppiAK8_jet_eta", 	&userVar1[7] );
+   theTree->SetBranchAddress( "mass_lvj_type0_PuppiAK8", 	&userVar1[8] );
+   theTree->SetBranchAddress( "pt_lvj_type0_PuppiAK8", 	&userVar1[9] );
+   theTree->SetBranchAddress( "eta_lvj_type0_PuppiAK8", 	&userVar1[10] );
+   theTree->SetBranchAddress( "deltaphi_METak8jet", 	&userVar1[11] );
+   //theTree->SetBranchAddress( "PuppiAK8_jet_tau2tau1", 	&userVar1[12] );
+   //theTree->SetBranchAddress( "njets", 	&userVar1[13] );
+   theTree->SetBranchAddress( "njets", 	&userVarI[0] );
+   theTree->SetBranchAddress( "vbf_maxpt_j1_pt", 	&userVar1[14] );
+   theTree->SetBranchAddress( "vbf_maxpt_j2_pt", 	&userVar1[15] );
+   theTree->SetBranchAddress( "vbf_maxpt_j1_eta", 	&userVar1[16] );
+   theTree->SetBranchAddress( "vbf_maxpt_j2_eta", 	&userVar1[17] );
+   theTree->SetBranchAddress( "PtBalance_type0", 	&userVar1[18] );
+   theTree->SetBranchAddress( "BosonCentrality_type0", 	&userVar1[19] );
+   theTree->SetBranchAddress( "vbf_maxpt_jj_Deta", 	&userVar1[20] );
+   theTree->SetBranchAddress( "PuppiAK8_jet_mass_so_corr", 	&userVar1[21] );
+   theTree->SetBranchAddress( "ZeppenfeldWH", &userVar1[22]);
+   theTree->SetBranchAddress( "ZeppenfeldWL_type0", &userVar1[23] ); 
+   //theTree->SetBranchAddress( "ZeppenfeldWH/DEtajj := ZeppenfeldWH/vbf_maxpt_jj_Deta", &userVar1[22]);
+   //theTree->SetBranchAddress( "ZeppenfeldWL/DEtajj := ZeppenfeldWL_type0/vbf_maxpt_jj_Deta", &userVar1[23] ); 
+   theTree->SetBranchAddress( "costheta1_type0", 	&userVar1[24] );
+   theTree->SetBranchAddress( "costheta2_type0", 	&userVar1[25] );
+   theTree->SetBranchAddress( "phi_type0", 	&userVar1[26] );
+   theTree->SetBranchAddress( "phi1_type0", 	&userVar1[27] );
+   theTree->SetBranchAddress( "costhetastar_type0", 	&userVar1[28] );
+   //theTree->SetBranchAddress( "WWRapidity", 	&userVar1[29] );
+   //theTree->SetBranchAddress( "RpT_type0", 	&userVar1[30] );
+   theTree->SetBranchAddress( "v_mt_type0", 	&userVar1[31] );
+   //theTree->SetBranchAddress( "LeptonProjection_type0", 	&userVar1[32] );
+   //theTree->SetBranchAddress( "VBSCentrality_type0", 	&userVar1[33] );
+   //theTree->SetBranchAddress( "ZeppenfeldWL_type0", 	&userVar1[34] );
+   //theTree->SetBranchAddress( "ZeppenfeldWH",	&userVar1[35] );
+   //theTree->SetBranchAddress( "ht 	&userVar1[36] );
+ 
    // Define the branch to save in output root file
    Float_t BDT_response;
    TBranch *bR = Outtree->Branch("BDT_response",&BDT_response);
@@ -224,12 +269,49 @@ void TMVAClassificationApplication( TString fname = "/eos/uscms/store/user/rasha
    sw.Start();
    for (Long64_t ievt=0; ievt<theTree->GetEntries();ievt++) {
 
-      if (ievt%1000 == 0) std::cout << "--- ... Processing event: " << ievt << std::endl;
+      if (ievt%50000 == 0) std::cout << "--- ... Processing event: " << ievt << std::endl;
 
       theTree->GetEntry(ievt);
 
       //var1 = userVar1 + userVar2;
       //var2 = userVar1 - userVar2;
+      var[0]  = userVar1[0];
+      var[1]  = userVar1[1];
+      var[2]  = userVar1[2];
+      var[3]  = userVar1[3];
+      var[4]  = userVar1[4];
+      var[5]  = userVar1[5];
+      var[6]  = userVar1[6];
+      var[7]  = userVar1[7];
+      var[8]  = userVar1[8];
+      var[9]  = userVar1[9];
+      var[10] = userVar1[10];
+      var[11] = userVar1[11];
+      //var[12] = userVar1[12];
+      //var[13] = userVar1[13];
+      var[13] = userVarI[0];
+      var[14] = userVar1[14];
+      var[15] = userVar1[15];
+      var[16] = userVar1[16];
+      var[17] = userVar1[17];
+      var[18] = userVar1[18];
+      var[19] = userVar1[19];
+      var[20] = userVar1[20];
+      var[21] = userVar1[21];
+      var[22] = userVar1[22]/userVar1[20];
+      var[23] = userVar1[23]/userVar1[20];
+      //var[22] = userVar1[22];
+      //var[23] = userVar1[23];
+      var[24] = userVar1[24];
+      var[25] = userVar1[25];
+      var[26] = userVar1[26];
+      var[27] = userVar1[27];
+      var[28] = userVar1[28];
+      //var[29] = userVar1[29];
+      //var[30] = userVar1[30];
+      var[31] = userVar1[31];
+      //var[32] = userVar1[32];
+      //var[33] = userVar1[33];
 
       // Return the MVA outputs and fill into histograms
 
@@ -262,7 +344,7 @@ void TMVAClassificationApplication( TString fname = "/eos/uscms/store/user/rasha
 
    target->Close();
 
-   std::cout << "--- Created root file: \"TMVApp.root\" containing the MVA output histograms" << std::endl;
+   std::cout << "--- Created root file: \""<<OutFileName<<"\" containing the MVA output histograms" << std::endl;
 
    delete reader;
 
