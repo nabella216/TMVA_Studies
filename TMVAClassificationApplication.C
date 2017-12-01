@@ -36,7 +36,7 @@
 
 using namespace TMVA;
 
-void TMVAClassificationApplication( TString fname = "/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_EWK_LO_SM.root", TString myMethodList = "" )
+void TMVAClassificationApplication( TString fname = "root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_EWK_LO_SM.root", TString myMethodList = "" )
 {
 
    //---------------------------------------------------------------

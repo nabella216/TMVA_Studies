@@ -1,0 +1,10 @@
+universe = vanilla
+Executable = condor.sh
+Should_Transfer_Files = YES
+WhenToTransferOutput = ON_EXIT
+Transfer_Input_Files = condor.sh, TMVAClassification.C, TMVAClassificationApplication.C, RunAllFiles.py 
+Output = trial1_$(Cluster)_$(Process).stdout
+Error = trial1_$(Cluster)_$(Process).stderr
+Log = trial1_$(Cluster)_$(Process).log
+x509userproxy = $ENV(X509_USER_PROXY)
+Queue 1

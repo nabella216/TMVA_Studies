@@ -164,80 +164,80 @@ int TMVAClassification( TString myMethodList = "" )
 
    // Read training and test data
    // (it is also possible to use ASCII format as input -> see TMVA Users Guide)
-//    TFile * inputSignal1 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_EWK_LO_SM.root");
-//    TFile * inputSignal2 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_EWK_LO_SM.root");
-//    TFile * inputSignal3 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWplusTo2JJJ_EWK_LO_SM.root");
-//    TFile * inputSignal4 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuWminusTo2JJJ_EWK_LO_SM.root");
-//    TFile * inputSignal5 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusTo2JZTo2LJJ_EWK_LO_SM.root");
-//    TFile * inputSignal6 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuZTo2JJJ_EWK_LO_SM.root");
-//    TFile * inputSignal7 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JZTo2LJJ_EWK_LO_SM.root");
-//    TFile * inputSignal8 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuZTo2JJJ_EWK_LO_SM.root");
-//    TFile * inputSignal9 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_EWK_LO_SM.root");
+//    TFile * inputSignal1 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_EWK_LO_SM.root");
+//    TFile * inputSignal2 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_EWK_LO_SM.root");
+//    TFile * inputSignal3 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWplusTo2JJJ_EWK_LO_SM.root");
+//    TFile * inputSignal4 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuWminusTo2JJJ_EWK_LO_SM.root");
+//    TFile * inputSignal5 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusTo2JZTo2LJJ_EWK_LO_SM.root");
+//    TFile * inputSignal6 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuZTo2JJJ_EWK_LO_SM.root");
+//    TFile * inputSignal7 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JZTo2LJJ_EWK_LO_SM.root");
+//    TFile * inputSignal8 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuZTo2JJJ_EWK_LO_SM.root");
+//    TFile * inputSignal9 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_EWK_LO_SM.root");
     
-    TFile * inputSignal1 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal2 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal3 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWplusTo2JJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal4 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuWminusTo2JJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal5 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusTo2JZTo2LJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal6 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuZTo2JJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal7 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JZTo2LJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal8 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuZTo2JJJ_EWK_LO_aQGC.root");
-    TFile * inputSignal9 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal1 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal2 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal3 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWplusTo2JJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal4 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuWminusTo2JJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal5 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusTo2JZTo2LJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal6 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuZTo2JJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal7 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JZTo2LJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal8 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuZTo2JJJ_EWK_LO_aQGC.root");
+    TFile * inputSignal9 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_EWK_LO_aQGC.root");
     
-    TFile * inputBkg_Wjet1 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_100To200.root");
-    TFile * inputBkg_Wjet2 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_200To400.root");
-    TFile * inputBkg_Wjet3 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_400To600.root");
-    TFile * inputBkg_Wjet4 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_600To800.root");
-    TFile * inputBkg_Wjet5 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_800To1200.root");
-    TFile * inputBkg_Wjet6 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_1200To2500.root");
-    TFile * inputBkg_Wjet7 = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_2500ToInf.root");
+    TFile * inputBkg_Wjet1 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_100To200.root");
+    TFile * inputBkg_Wjet2 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_200To400.root");
+    TFile * inputBkg_Wjet3 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_400To600.root");
+    TFile * inputBkg_Wjet4 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_600To800.root");
+    TFile * inputBkg_Wjet5 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_800To1200.root");
+    TFile * inputBkg_Wjet6 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_1200To2500.root");
+    TFile * inputBkg_Wjet7 = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WJetsToLNu_HT_2500ToInf.root");
 
-    //TFile * inputBkg_DY0  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DYToLL_0J_13TeV.root");
-    //TFile * inputBkg_DY1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DYToLL_1J_13TeV.root");
-    //TFile * inputBkg_DY2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DYToLL_2J_13TeV.root");
+    //TFile * inputBkg_DY0  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DYToLL_0J_13TeV.root");
+    //TFile * inputBkg_DY1  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DYToLL_1J_13TeV.root");
+    //TFile * inputBkg_DY2  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DYToLL_2J_13TeV.root");
       
-    TFile * inputBkg_Top1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_tW_antitop_5f_NoFullyHadronicDecays.root");
-    TFile * inputBkg_Top2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_tW_top_5f_NoFullyHadronicDecays.root");
-    TFile * inputBkg_Top3  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTToSemilepton.root");
-    TFile * inputBkg_Top4  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTWJetsToLNu.root");
-    TFile * inputBkg_Top5  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTWJetsToQQ.root");
-    TFile * inputBkg_Top6  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTZToLLNuNu_M-10.root");
-    TFile * inputBkg_Top7  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTZToQQ.root");
-    TFile * inputBkg_Top8  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_s_channel.root");
-    TFile * inputBkg_Top9  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_t_channel_antitop.root");
-    TFile * inputBkg_Top10  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_t_channel_top_4f.root");
+    TFile * inputBkg_Top1  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_tW_antitop_5f_NoFullyHadronicDecays.root");
+    TFile * inputBkg_Top2  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_tW_top_5f_NoFullyHadronicDecays.root");
+    TFile * inputBkg_Top3  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTToSemilepton.root");
+    TFile * inputBkg_Top4  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTWJetsToLNu.root");
+    TFile * inputBkg_Top5  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTWJetsToQQ.root");
+    TFile * inputBkg_Top6  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTZToLLNuNu_M-10.root");
+    TFile * inputBkg_Top7  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/TTZToQQ.root");
+    TFile * inputBkg_Top8  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_s_channel.root");
+    TFile * inputBkg_Top9  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_t_channel_antitop.root");
+    TFile * inputBkg_Top10  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ST_t_channel_top_4f.root");
     
-    TFile * inputBkg_Diboson1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson3  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWplusTo2JJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson4  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuWminusTo2JJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson5  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuZTo2JJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson6  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JZTo2LJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson7  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuZTo2JJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson8  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusTo2JZTo2LJJ_QCD_LO_SM.root");
-    TFile * inputBkg_Diboson9  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson1  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWminusTo2JJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson2  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JWminusToLNuJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson3  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuWplusTo2JJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson4  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuWminusTo2JJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson5  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusToLNuZTo2JJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson6  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WplusTo2JZTo2LJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson7  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusToLNuZTo2JJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson8  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WminusTo2JZTo2LJJ_QCD_LO_SM.root");
+    TFile * inputBkg_Diboson9  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZTo2LZTo2JJJ_QCD_LO_SM.root");
 
-    //TFile * inputBkg_VV1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WWTo1L1Nu2Q_13TeV.root");
-    //TFile * inputBkg_VV2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WWZ_13TeV_amcatnlo.root");
-    //TFile * inputBkg_VV3  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WZTo1L1Nu2Q_13TeV.root");
-    //TFile * inputBkg_VV4  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZZTo2L2Q_13TeV.root");
-    //TFile * inputBkg_VV5  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZZZ_13TeV_amcatnlo.root");
-    //TFile * inputBkg_VV6  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZZ_13TeV_pythia8.root");
+    //TFile * inputBkg_VV1  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WWTo1L1Nu2Q_13TeV.root");
+    //TFile * inputBkg_VV2  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WWZ_13TeV_amcatnlo.root");
+    //TFile * inputBkg_VV3  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/WZTo1L1Nu2Q_13TeV.root");
+    //TFile * inputBkg_VV4  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZZTo2L2Q_13TeV.root");
+    //TFile * inputBkg_VV5  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZZZ_13TeV_amcatnlo.root");
+    //TFile * inputBkg_VV6  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/ZZ_13TeV_pythia8.root");
 
 
         
-    //TFile * inputBkg_QCD1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT100to200.root");
-    //TFile * inputBkg_QCD2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT200to300.root");
-    //TFile * inputBkg_QCD3  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT300to500.root");
-    //TFile * inputBkg_QCD4  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT500to700.root");
-    //TFile * inputBkg_QCD5  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT700to1000.root");
-    //TFile * inputBkg_QCD6  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT1000to1500.root");
-    //TFile * inputBkg_QCD7  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT1500to2000.root");
-    //TFile * inputBkg_QCD8  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT2000toInf.root");
-    //TFile * inputBkg_DY1  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY1JetsToLL.root");
-    //TFile * inputBkg_DY2  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY2JetsToLL.root");
-    //TFile * inputBkg_DY3  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY3JetsToLL.root");
-    //TFile * inputBkg_DY4  = TFile::Open("/eos/uscms/store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY4JetsToLL.root");
+    //TFile * inputBkg_QCD1  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT100to200.root");
+    //TFile * inputBkg_QCD2  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT200to300.root");
+    //TFile * inputBkg_QCD3  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT300to500.root");
+    //TFile * inputBkg_QCD4  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT500to700.root");
+    //TFile * inputBkg_QCD5  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT700to1000.root");
+    //TFile * inputBkg_QCD6  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT1000to1500.root");
+    //TFile * inputBkg_QCD7  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT1500to2000.root");
+    //TFile * inputBkg_QCD8  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/QCD_HT2000toInf.root");
+    //TFile * inputBkg_DY1  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY1JetsToLL.root");
+    //TFile * inputBkg_DY2  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY2JetsToLL.root");
+    //TFile * inputBkg_DY3  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY3JetsToLL.root");
+    //TFile * inputBkg_DY4  = TFile::Open("root://cmsxrootd.fnal.gov//store/user/rasharma/SecondStep/WWTree_2017-11-26_18h59/HaddedFiles/DY4JetsToLL.root");
 
    // Register the training and test trees
 
